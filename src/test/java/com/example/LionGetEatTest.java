@@ -10,15 +10,17 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionGetEatTest {
+   private String sex = "Самка";
+   List<String> lionEat = List.of("Животные", "Птицы", "Рыба");
   @Mock
   Feline feline;
 
   @Test
    public void getLionEat() throws Exception {
-      Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-      Lion lion = new Lion(feline);
+      Mockito.when(feline.getFood("Хищник")).thenReturn(lionEat);
+      Lion lion = new Lion(sex,feline);
       List<String> actualLionFood = lion.getFood();
-      List<String> expectedLionFood = List.of("Животные", "Птицы", "Рыба");
+      List<String> expectedLionFood = lionEat;
       assertEquals(expectedLionFood,actualLionFood);
   }
 

@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
     public class LionParamTest {
         private final String  lionSex;
         private final boolean hasMane;
-
+        protected Feline feline;
         public LionParamTest(String  lionSex, boolean hasMane){
             this.lionSex = lionSex;
             this.hasMane = hasMane;
@@ -26,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 
         @Test
         public void lionSexTest() throws Exception {
-            Lion lion = new Lion(lionSex);
+            Lion lion = new Lion(lionSex,feline);
             boolean isMane = lion.doesHaveMane();
             assertEquals(hasMane,isMane);
 
